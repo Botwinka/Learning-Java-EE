@@ -2,12 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
         <h1>Notowania giełdowe</h1>
         <table>
             <tr>
@@ -18,13 +18,19 @@
             </tr>
             <ui:repeat value="#{managerBean.spolki}" var="spolka">
                 <tr>
-                    <th>#{spolka.name}</th>
-                    <th>#{spolka.symbol}</th>
-                    <th>#{spolka.ostatnie.price}</th>
-                    <th>#{spolka.ostatnie.change}</th>
+                    <td>#{spolka.name}</td>
+                    <td>
+                        <h:outputLink value="faces/history.xhtml">
+                            <f:param name="symbol" value="#{spolka.symbol}" />
+                            <h:outputText value="#{spolka.symbol}"/>
+                        </h:outputLink>
+                    </td>
+                    <td>#{spolka.ostatnie.price}</td>
+                    <td>#{spolka.ostatnie.change}</td>
                 </tr>
             </ui:repeat>
         </table>
+        <h:outputLink value="faces/sectors.xhtml">Informacje o sektorach</h:outputLink>
     </h:body>
 </html>
 

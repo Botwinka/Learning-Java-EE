@@ -7,5 +7,18 @@
         <managed-bean-name>managerBean</managed-bean-name>
         <managed-bean-class>pl.helion.jeeweb.hellojsf.entity.ManagerBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>activeCompanySymbol</property-name>
+            <value>#{param.symbol}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>sectorInfoBean</managed-bean-name>
+        <managed-bean-class>pl.helion.jeeweb.hellojsf.entity.SectorInfoBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>managerBean</property-name>
+            <value>#{managerBean}</value>
+        </managed-property>
     </managed-bean>
 </faces-config>

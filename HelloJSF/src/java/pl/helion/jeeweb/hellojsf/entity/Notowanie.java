@@ -14,6 +14,7 @@ public class Notowanie {
     private Date  day;
     private double change;
     private Spolka spolka;
+    private double priceGain;
     
     public Notowanie(){};
     
@@ -64,6 +65,20 @@ public class Notowanie {
     {
         return spolka;
         
+    }
+
+    /**
+     * @return the priceGain
+     */
+    public double getPriceGain() {
+        return priceGain;
+    }
+
+    /**
+     * @param priceGain the priceGain to set
+     */
+    public void setPriceGain(double priceGain) {
+        this.priceGain = priceGain;
     }
     
 }

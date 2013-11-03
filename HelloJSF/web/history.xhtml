@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./layout.xhtml"
+                xmlns:c ="http://java.sun.com/jsf/core"
+                xmlns:h ="http://java.sun.com/jsf/html">
+
+    <ui:define name="top">
+        Historyczne notowania spolki #{managerBean.activeCompany.name}
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputLink value="./index.xhtml">Powrót</h:outputLink>
+        <table>
+            <tr>
+                <th>Dzień</th>
+                <th>Wartość</th>
+                <th>Zmiana</th>
+            </tr>
+            <ui:repeat value="#{managerBean.activeCompany.notowania}" var="notowanie">
+                <tr>
+                    <td>
+                        <h:outputText value="#{notowanie.day}">
+                            <c:convertDateTime dateStyle="short" type="date"/>
+                        </h:outputText>
+                    </td>
+                    <td>
+                        #{notowanie.price}
+                    </td>
+                    <td>
+                        #{notowanie.change}
+                    </td>
+                </tr>
+                    
+            </ui:repeat>
+        </table>
+    </ui:define>
+
+</ui:composition>
