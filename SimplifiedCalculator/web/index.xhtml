@@ -1,12 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Fazy aplikacji JSF</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form id="firstForm">
+            <h:outputLabel for="firstForm:number1">
+                Liczba 1: 
+            </h:outputLabel>
+            <h:inputText id="number1" value="#{calculatorBean.number1}"/><br/>
+            
+            <h:outputLabel for="firstForm:number2">
+                Liczba 2: 
+            </h:outputLabel>
+            <h:inputText id="number2" value="#{calculatorBean.number2}"/><br/>
+            <h:commandButton label="Oblicz" action="#{calculatorBean.calculate}"/>
+            <h:outputText value="Wynik to: #{calculatorBean.sum}"/>
+        </h:form>
     </h:body>
 </html>
 
