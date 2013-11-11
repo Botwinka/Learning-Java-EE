@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./applicationLayout.xhtml">
+
+    <ui:define name="content">
+        <h:form>
+            <table>
+                <tr>
+                    <td>
+                        Nazwa
+                    </td>
+                    <td>
+                        <h:inputText id="name" value="#{clinicBean.clinic.name}" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Adres
+                    </td>
+                    <td>
+                        <h:inputText id="adress" value="#{clinicBean.clinic.adress}" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Kontakt
+                    </td>
+                    <td>
+                        <h:inputText id="contact" value="#{clinicBean.clinic.contact}" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Opis
+                    </td>
+                    <td>
+                        <h:inputText id="description" value="#{clinicBean.clinic.description}" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <h:commandButton action="#{clinicBean.edit}" value="Edytuj"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

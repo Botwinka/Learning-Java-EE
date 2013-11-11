@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./applicationLayout.xhtml">
+
+    <ui:define name="content">
+        <h1>Lista przychodni</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <th>Edytuj</th>
+                    <th>Usuń</th>
+                    <th>Nazwa</th>
+                    <th>Opis</th>
+                    <th>Adres</th>
+                    <th>Kontakt</th>
+                </tr>
+                <ui:repeat value="#{clinicBean.clinicList}" var="clinic">
+                    <tr>
+                        <td>
+                            <h:commandLink value="Edytuj" 
+                                           action="#{clinicBean.loadToEdit}"
+                                           actionListener="#{clinicBean.clinicListener}">
+                                <f:param name="clinicId"
+                                         value="#{clinic.clinicId}"/>
+                            </h:commandLink>
+                        </td>
+                        <td>
+                            <h:commandLink value="Usuń" 
+                                           action="#{clinicBean.delete}"
+                                           actionListener="#{clinicBean.clinicListener}">
+                                <f:param name="clinicId"
+                                         value="#{clinic.clinicId}"/>
+                            </h:commandLink>
+                        </td>
+                        <td>#{clinic.name}</td>
+                        <td>#{clinic.description}</td>
+                        <td>#{clinic.adress}</td>
+                        <td>#{clinic.contact}</td>
+                    </tr>
+                </ui:repeat>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
